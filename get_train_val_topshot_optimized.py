@@ -13,12 +13,12 @@ def load_data(file_path):
     data['abstract'] = data['article'].apply(lambda x: x.split("\n")[0])
     return data
 
-elife_train = load_data("/data/dachengma/dachengma/biolaysumm2024_data/eLife_train.jsonl")
-elife_val = load_data("/data/dachengma/dachengma/biolaysumm2024_data/eLife_val.jsonl")
-plos_train = load_data("/data/dachengma/dachengma/biolaysumm2024_data/PLOS_train.jsonl")
-plos_val = load_data("/data/dachengma/dachengma/biolaysumm2024_data/PLOS_val.jsonl")
+elife_train = load_data("./biolaysumm2024_data/eLife_train.jsonl")
+elife_val = load_data("./biolaysumm2024_data/eLife_val.jsonl")
+plos_train = load_data("./biolaysumm2024_data/PLOS_train.jsonl")
+plos_val = load_data("./biolaysumm2024_data/PLOS_val.jsonl")
 
-model = BGEM3FlagModel('/data/dachengma/models/bge-m3', use_fp16=True)
+model = BGEM3FlagModel('./models/bge-m3', use_fp16=True)
 model = torch.nn.DataParallel(model)
 model.to('cuda')
 
