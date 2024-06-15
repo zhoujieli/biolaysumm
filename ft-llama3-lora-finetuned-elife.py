@@ -1,10 +1,7 @@
 import transformers
 import torch
 
-# model_id = "aaditya/OpenBioLLM-Llama3-8B"
-#model_path = "/home/dachengma/Llama3-OpenBioLLM-8B/"
-# model_path = "/home/dachengma/models/LLM-Research/Meta-Llama-3-8B-Instruct"
-model_path="/data/dachengma/dachengma/biolaysumm2024_data/LLaMA-Factory/llama3_lora_merged_eLife_train"
+model_path="./biolaysumm2024_data/LLaMA-Factory/llama3_lora_merged_eLife_train"
 
 pipeline = transformers.pipeline(
     "text-generation",
@@ -58,7 +55,7 @@ def get_laysumm(df, i):
 
 from tqdm import tqdm
 import pandas as pd
-elife_test=pd.read_csv("/data/dachengma/dachengma/l3ft/elife_test_with_top_shot.csv")
+elife_test=pd.read_csv("./l3ft/elife_test_with_top_shot.csv")
 # !export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
 elife_responses = []
 '''
