@@ -1,7 +1,7 @@
 {
   "stage": "sft",
   "do_train": true,
-  "model_name_or_path": "/home/dachengma/llama-3-8b-Instruct-bnb-4bit",
+  "model_name_or_path": "./llama-3-8b-Instruct-bnb-4bit",
   "dataset": "eLife",
   "template": "llama3",
   "finetuning_type": "lora",
