@@ -5,7 +5,7 @@ import json
 from tqdm import tqdm
 few_shot=True
 # Initialize the pipeline configuration
-model_path = "/data/dachengma/dachengma/biolaysumm2024_data/LLaMA-Factory/llama3_lora_merged_eLife_train"
+model_path = "./biolaysumm2024_data/LLaMA-Factory/llama3_lora_merged_eLife_train"
 pipeline = transformers.pipeline(
     "text-generation",
     model=model_path,
@@ -69,12 +69,12 @@ mode = "val"  # Set to either "test" or "val"
 
 # Load data based on mode
 if mode == "test":
-    data_file = "/data/dachengma/dachengma/l3ft/elife_test_with_top_shot.csv"
+    data_file = "./l3ft/elife_test_with_top_shot.csv"
     data_df = pd.read_csv(data_file)
 else:
     journal = "eLife"  # or "PLOS"
-    data_file = "/data/dachengma/dachengma/l3ft/elife_val_with_top_shot.csv"
-    #data_file = f"/data/dachengma/dachengma/biolaysumm2024_data/{journal}_val_abstracts_and_summaries.json"
+    data_file = "./l3ft/elife_val_with_top_shot.csv"
+    #data_file = f"./biolaysumm2024_data/{journal}_val_abstracts_and_summaries.json"
     '''
     with open(data_file, 'r') as f:
         data = json.load(f)
